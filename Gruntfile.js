@@ -2,7 +2,21 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
     concat: {
+      options: {
+        separator: ';\n'
+      },
+      dist: {
+        src: ['public/client/app.js', 'public/client/link.js', 'public/client/links.js', 'public/client/linkView.js',
+              'public/client/linksView.js', 'public/client/createLinkView.js', 'public/client/router.js'],
+        dest: 'public/dist/<%= pkg.name %>-<%= pkg.version %>.js',
+      },
+      lib: {
+        src: ["public/lib/jquery.js", "public/lib/underscore.js", "public/lib/backbone.js", "public/lib/handlebars.js"],
+        dest: 'public/dist/lib-<%= pkg.version %>.js'
+      }
+
     },
 
     mochaTest: {
@@ -21,6 +35,7 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+
     },
 
     jshint: {

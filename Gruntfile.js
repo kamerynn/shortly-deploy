@@ -48,9 +48,10 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      files: [
+      files: {
+        src: ['app/**/*.js', 'lib/**/*.js', 'public/client/*.js', 'server-config.js', 'server.js']
         // Add filespec list here
-      ],
+      },
       options: {
         force: 'true',
         jshintrc: '.jshintrc',
